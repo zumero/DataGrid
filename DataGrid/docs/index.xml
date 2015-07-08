@@ -1,0 +1,77 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="Zumero.DataGrid" Version="1.0.5506.28136">
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.Default | System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints | System.Diagnostics.DebuggableAttribute+DebuggingModes.EnableEditAndContinue)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyConfiguration("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright("eric")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyDescription("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyProduct("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTitle("tabular")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.CompilationRelaxations(8)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.iOS")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.Unified")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.Android")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.WinPhone")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.Versioning.TargetFramework(".NETPortable,Version=v4.5,Profile=profile78", FrameworkDisplayName=".NET Portable Subset")</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>
+    <para>
+        DataGrid is a Xamarin.Forms control for displaying data in rows and columns.
+        </para>
+    <para>
+            Features:
+            <list type="bullet"><item><term>Support for cell contents to be any <c>Xamarin.Forms.View</c>.</term></item><item><term>Scrolling, both horizontal and vertical</term></item><item><term>Optional top frozen header row</term></item><item><term>Optional left frozen column</term></item><item><term>Separate view template for each column</term></item><item><term>View recycling.   If you have 1000 rows but only 10
+                        can be visible, DataGrid creates 10 Views and reuses
+                        them.</term></item><item><term>Data row objects (provided to the DataGrid as an <c>IList&lt;object&gt;</c>)</term></item><item><term>Strong integration with the Xamarin.Forms binding mechanism</term></item><item><term>Automatic updates if an <c>ObservableCollection</c> is used for rows and columns</term></item><item><term>Configurable row height (for all rows in the grid)</term></item><item><term>Configurable column widths (can be different for each column)</term></item><item><term>Configurable spacing between rows and columns</term></item><item><term>Row selections</term></item><item><term>Works with C#, F#, and XAML</term></item><item><term>Support for iOS, Android, and Windows Phone</term></item><item><term>Full API documentation in MonoDoc</term></item></list></para>
+    <para>
+        DataGrid is primarily designed for use cases which involve few
+        columns and many rows.  If you have thousands of columns, then
+        DataGrid is not your best choice.
+        </para>
+  </Remarks>
+  <Copyright>Copyright 2014-2015 Zumero, LLC.</Copyright>
+  <Types>
+    <Namespace Name="Zumero">
+      <Type Name="Column" Kind="Class" />
+      <Type Name="DataGrid" Kind="Class" />
+      <Type Name="SelMode" Kind="Enumeration" />
+    </Namespace>
+  </Types>
+  <Title>Zumero.DataGrid</Title>
+</Overview>

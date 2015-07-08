@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+  xmlns:d="clr-namespace:Zumero;assembly=Zumero.DataGrid"
+  xmlns:c="clr-namespace:samples;assembly=samples"
+	x:Class="samples.CountriesXaml">
+  <ContentPage.Content>
+    
+    <d:DataGrid x:Name="datagrid" Rows="{Binding DataRows}" BackgroundColor="Black" RowHeight="80">
+      <d:DataGrid.FrozenColumn>
+        <d:Column Width="150">
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding name}" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+      </d:DataGrid.FrozenColumn>
+
+      <d:DataGrid.Columns>
+
+        <d:Column Width="200">
+          <d:Column.HeaderView>
+            <Label Text="native name" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding nativeName}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+      
+        <d:Column Width="50">
+          <d:Column.HeaderView>
+            <Label Text="tld" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding tld}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+          
+        <d:Column Width="50">
+          <d:Column.HeaderView>
+            <Label Text="cca2" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding cca2}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="50">
+          <d:Column.HeaderView>
+            <Label Text="ccn3" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding ccn3}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+        
+        <d:Column Width="50">
+          <d:Column.HeaderView>
+            <Label Text="cca3" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding cca3}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+        
+        <d:Column Width="80">
+          <d:Column.HeaderView>
+            <Label Text="currency" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding currency}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+        
+        <d:Column Width="60">
+          <d:Column.HeaderView>
+            <Label Text="calling code" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding callingCode}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="capital" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding capital}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="region" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding region}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="subregion" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding subregion}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="130">
+          <d:Column.HeaderView>
+            <Label Text="lang" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding lang}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="150">
+          <d:Column.HeaderView>
+            <Label Text="borders" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding borders}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="area" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding area}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+      </d:DataGrid.Columns>
+    </d:DataGrid>
+	</ContentPage.Content>
+</ContentPage>

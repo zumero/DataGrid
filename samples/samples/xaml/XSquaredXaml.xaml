@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+  xmlns:d="clr-namespace:Zumero;assembly=Zumero.DataGrid"
+  xmlns:c="clr-namespace:samples;assembly=samples"
+	x:Class="samples.XSquaredXaml">
+  <ContentPage.Content>
+    
+    <d:DataGrid x:Name="datagrid" Rows="{Binding DataRows}" BackgroundColor="Black" RowHeight="80">
+      <d:DataGrid.Columns>
+
+        <d:Column Width="80">
+          <d:Column.HeaderView>
+            <Label Text="X" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding X}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+      
+        <d:Column Width="80">
+          <d:Column.HeaderView>
+            <Label Text="X^2" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding XSquared}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="120">
+          <d:Column.HeaderView>
+            <Label Text="Slider" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+                <!--The slider is wrapped in a ContentView, because Android sliders
+			    do not cope well with having their height set by the 
+			    grid control.-->
+                <ContentView BackgroundColor="White" VerticalOptions="FillAndExpand">
+                    <Slider Value="{Binding X, Mode=TwoWay}" VerticalOptions="Center" BackgroundColor="White" Minimum="-20" Maximum="20"></Slider>
+                </ContentView>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+      </d:DataGrid.Columns>
+    </d:DataGrid>
+	</ContentPage.Content>
+</ContentPage>

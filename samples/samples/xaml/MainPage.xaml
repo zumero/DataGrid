@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:d="clr-namespace:Zumero;assembly=Zumero.DataGrid"
+					   x:Class="samples.xaml.MainPage"
+             BackgroundColor="Black">
+    <ContentPage.Title>Zumero DataGrid Samples</ContentPage.Title>
+    <ContentPage.Content>
+        <StackLayout Padding="5, 5, 5, 0">
+            <Label Text="These samples show the Zumero DataGrid in action. Each sample has been written twice, once in C# and once in XAML. Click one of the buttons to try out the sample." TextColor="White"></Label>
+
+            <d:DataGrid x:Name="datagrid" Rows="{Binding DataRows}" BackgroundColor="Black" RowHeight="90" HeaderHeight="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <d:DataGrid.FrozenColumn>
+                    <d:Column Width="90">
+                        <d:Column.Template>
+                            <DataTemplate>
+                                <Label Text="{Binding SampleName}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+                            </DataTemplate>
+                        </d:Column.Template>
+                    </d:Column>
+                </d:DataGrid.FrozenColumn>
+                <d:DataGrid.Columns>
+                    <d:Column Width="150">
+                        <d:Column.Template>
+                            <DataTemplate>
+                                <Label Text="{Binding SampleDescription}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+                            </DataTemplate>
+                        </d:Column.Template>
+                    </d:Column>
+
+                    <d:Column Width="70">
+                        <d:Column.Template>
+                            <DataTemplate>
+                                    <Button Text="C#" Clicked="OnCodeButtonClicked" BorderWidth="0" BackgroundColor="Green" TextColor="White"></Button>
+                            </DataTemplate>
+                        </d:Column.Template>
+                    </d:Column>
+
+                    <d:Column Width="70">
+                        <d:Column.Template>
+                            <DataTemplate>
+                                <Button Text="XAML" Clicked="OnXamlButtonClicked" BorderWidth="0" BackgroundColor="Green" TextColor="White"></Button>
+                            </DataTemplate>
+                        </d:Column.Template>
+                    </d:Column>
+                </d:DataGrid.Columns>
+            </d:DataGrid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

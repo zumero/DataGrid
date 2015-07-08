@@ -1,0 +1,516 @@
+<Type Name="DataGrid" FullName="Zumero.DataGrid">
+  <TypeSignature Language="C#" Value="public class DataGrid : Xamarin.Forms.ContentView" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit DataGrid extends Xamarin.Forms.ContentView" />
+  <AssemblyInfo>
+    <AssemblyName>Zumero.DataGrid</AssemblyName>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Xamarin.Forms.ContentView</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+          A Xamarin.Forms control for displaying data in rows and columns.
+      </summary>
+    <remarks>
+      <para>
+          The two main properties of the DataGrid are 
+          <see cref="T:Zumero.DataGrid.Columns"/>
+          and <see cref="T:Zumero.DataGrid.Rows"/>.  
+
+            <list type="bullet">
+                <item><term>The Rows are the data.</term></item>
+                <item><term>The Columns describe how to display the data.</term></item>
+            </list>
+      </para>
+      <para>
+        Each cell (the intersection of a row and column) in DataGrid is
+        a View.  DataGrid does not support Xamarin.Forms.Cell, but it
+        does manage View recycling.  Even if your data has a million rows,
+        DataGrid will create and manage only enough View objects for
+        the cells which are visible.
+            </para>
+      <para>
+        The type of View in each cell is defined by the column it is
+        in.  All cells in a given column will use the same template
+        for its Views.
+            </para>
+      <para>
+        The View in a cell can be any kind of Xamarin.Forms.View.
+        Common choices include Label, Entry, or Image, but you can
+        use anything you want.
+            </para>
+      <para>
+        All rows in a DataGrid are the same height, but each column
+        can specify its own width.
+            </para>
+      <para>
+        DataGrid can optionally have one "frozen" column on the left side.
+        This column will scroll with the main panel vertically, but it
+        does not move when the main panel scrolls horizontally.
+            </para>
+      <para>
+        Similarly, DataGrid can optionally have one frozen row at the top.
+        This frozen row is called the Header.  Its horizontal scrolling
+        is synchronized with the main panel.  The Header row can have
+        a different height from the rows in the main panel.
+            </para>
+      <para>
+        Just as the DataTemplate for each column specifies how cell
+        views for that column are to be created, it also specifies
+        the bindings for those cell views.  Those bindings specify
+        which properties from the "row object" will be used as data
+        to be displayed by the cell view.
+            </para>
+      <para>
+        DataGrid requires one data object for each row.  This row
+        object is set as the BindingContext for each cell view in that
+        row.
+            </para>
+      <para>
+        DataGrid does not draw grid lines, but it does have properties
+        to control the spacing between rows and columns.  If you set
+        these properties to a positive number then the BackgroundColor
+        of the DataGrid will show through in between the cells.  In
+        essence, the RowSpacing and ColumnSpacing properties determine
+        the width of the grid lines, and the BackgroundColor property
+        determines the color of the grid lines.
+            </para>
+      <para>
+        For reasons of performance and the need to scroll both horizontally
+        and vertically, DataGrid manages its own scrolling.  Currently,
+        this feature is limited to simple scrolling on touch and
+        pan.  Features like fling and bounce are not yet supported.
+            </para>
+      <para>
+            Note that because DataGrid is a subclass of Xamarin.Forms.ContentView, it inherits a publicly-visible Content property.
+            You should consider this property to be private.
+        </para>
+      <para>
+          To initialize Zumero.DataGrid, call Zumero.DataGridComponent.Init() from your platform code.
+          We recommend inserting this call just below the call to Xamarin.Forms.Forms.Init().
+        </para>
+      <para>
+        DataGrid is primarily designed for use cases which involve few
+        columns and many rows.  If you have thousands of columns, then
+        DataGrid is not your best choice.
+            </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public DataGrid ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Initializes a new instance of the DataGrid class.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Columns">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;Zumero.Column&gt; Columns { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;class Zumero.Column&gt; Columns" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;Zumero.Column&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Collection of <see cref="T:Zumero.Column"/> objects, each of which describes how to
+              display data in one column of the main panel of the grid.
+          </summary>
+        <value>
+              Should not be null.
+          </value>
+        <remarks>
+              If this is an ObservableCollection (recommended), the DataGrid will dynamically update
+              when columns are replaced, added, or removed.
+          </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ColumnSpacing">
+      <MemberSignature Language="C#" Value="public double ColumnSpacing { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 ColumnSpacing" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+              Spacing between columns. 
+          </summary>
+        <value>
+              Negative values not allowed.
+          </value>
+        <remarks>
+              This value will also be used as the spacing between the frozen left column and the main panel.
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ColumnSpacingProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty ColumnSpacingProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty ColumnSpacingProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the ColumnSpacing bindable property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ColumnsProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty ColumnsProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty ColumnsProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the Columns bindable property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FrozenColumn">
+      <MemberSignature Language="C#" Value="public Zumero.Column FrozenColumn { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Zumero.Column FrozenColumn" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Zumero.Column</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+              Describes the frozen Column to be shown on the left.
+            </summary>
+        <value>If you don't want a frozen column, just set this to null.</value>
+        <remarks>
+          <para>
+                The FrozenColumn gets its values from the same row object as the other columns.
+                In other words, for row number N, the BindingContext for all views in a given
+                row, including the view in the frozen column, will be Rows[N].
+                </para>
+          <para>
+                The HeaderView of this Column will be displayed in the upper-left corner.
+                </para>
+          <para>
+                The FrozenColumn can be null, which will mean the DataGrid simply doesn't have
+                a frozen column on the left side.
+                </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FrozenColumnProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty FrozenColumnProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty FrozenColumnProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the FrozenColumn bindable property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HeaderHeight">
+      <MemberSignature Language="C#" Value="public double HeaderHeight { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 HeaderHeight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Height of the frozen row at the top.  </summary>
+        <value>Negative values not allowed.</value>
+        <remarks>The default value is 50.  If you do not set the HeaderView property of any Columns, you will end up with 50 pixels of empty
+            space at the top unless you override this default.  Set the HeaderHeight to 0 if you don't want the header row.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HeaderHeightProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty HeaderHeightProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty HeaderHeightProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the HeaderHeight bindable property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="OnSizeAllocated">
+      <MemberSignature Language="C#" Value="protected override void OnSizeAllocated (double width, double height);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void OnSizeAllocated(float64 width, float64 height) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="width" Type="System.Double" />
+        <Parameter Name="height" Type="System.Double" />
+      </Parameters>
+      <Docs>
+        <param name="width">
+        </param>
+        <param name="height">
+        </param>
+        <summary>
+        </summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RowHeight">
+      <MemberSignature Language="C#" Value="public double RowHeight { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 RowHeight" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+              The height of all rows in the main panel.
+          </summary>
+        <value>
+              Negative values not allowed.
+          </value>
+        <remarks>
+              Except for the Header row (the frozen row at the top), all rows have the same height.  
+              The height of the Header row is specified separately using the <see cref="T:Zumero.DataGrid.HeaderHeight" /> property.
+          </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RowHeightProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty RowHeightProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty RowHeightProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the RowHeight bindable property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Rows">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IList&lt;object&gt; Rows { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IList`1&lt;object&gt; Rows" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>The data to be displayed in this DataGrid.</summary>
+        <value>
+            If Rows is an ObservableCollection (recommended), the DataGrid will dynamically update
+            when data rows are replaced, added, or removed.
+        </value>
+        <remarks>
+          <para>
+            The data for each row is contained in an object.  The Template for each column contains
+            bindings which specify which properties from the row object will be bound for Views
+            in that column.
+            </para>
+          <para>
+            If the objects in the Rows collection support INotifyPropertyChanged (recommended),
+            changes to properties of the row objects will automatically update the Views in the
+            DataGrid, and vice versa.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RowSpacing">
+      <MemberSignature Language="C#" Value="public double RowSpacing { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 RowSpacing" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Spacing between rows.  </summary>
+        <value>
+              Negative values not allowed.
+        </value>
+        <remarks>This value will also be used as the spacing between the Header and the main panel below.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RowSpacingProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty RowSpacingProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty RowSpacingProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the RowSpacing bindable property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RowsProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty RowsProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty RowsProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the Rows bindable property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectedBackgroundColor">
+      <MemberSignature Language="C#" Value="public Xamarin.Forms.Color SelectedBackgroundColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Xamarin.Forms.Color SelectedBackgroundColor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the value which will be set as the BackgroundColor property for a cell view when it is selected.</summary>
+        <remarks>This property has no effect when SelectionMode is None.  The BackgroundColor is changed only for cell views which are an instance of Label or Layout.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectedBackgroundColorProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty SelectedBackgroundColorProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty SelectedBackgroundColorProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the SelectedBackgroundColor bindable property.</summary>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectedRowIndex">
+      <MemberSignature Language="C#" Value="public int SelectedRowIndex { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 SelectedRowIndex" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Gets or sets the index of the row which is currently selected.</summary>
+        <value>A value less than zero indicates no row is selected.</value>
+        <remarks>This property has no effect when SelectionMode is None.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectedRowIndexProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty SelectedRowIndexProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty SelectedRowIndexProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the SelectedRowIndex bindable property.</summary>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectionMode">
+      <MemberSignature Language="C#" Value="public Zumero.SelMode SelectionMode { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Zumero.SelMode SelectionMode" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Zumero.SelMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the type of selections used by this DataGrid.</summary>
+        <value>Currently the only supported values are None (the default), and Row, which allows one entire row to be selected.</value>
+        <remarks>The default value is None.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectionModeProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty SelectionModeProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty SelectionModeProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the SelectionMode bindable property.</summary>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnselectedBackgroundColor">
+      <MemberSignature Language="C#" Value="public Xamarin.Forms.Color UnselectedBackgroundColor { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Xamarin.Forms.Color UnselectedBackgroundColor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Specifies the value which will be set as the BackgroundColor property for a cell view when it is NOT selected.</summary>
+        <remarks>This property has no effect when SelectionMode is None.  The BackgroundColor is changed only for cell views which are an instance of Label or Layout.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UnselectedBackgroundColorProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty UnselectedBackgroundColorProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty UnselectedBackgroundColorProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the UnselectedBackgroundColor bindable property.</summary>
+        <remarks></remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

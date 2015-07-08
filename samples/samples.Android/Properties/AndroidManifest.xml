@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Zumero.DataGrid.Samples">
+	<uses-sdk android:minSdkVersion="17" />
+	<application android:label="Zumero.DataGrid.Samples">
+	</application>
+</manifest>

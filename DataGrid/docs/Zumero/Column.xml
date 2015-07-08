@@ -1,0 +1,214 @@
+<Type Name="Column" FullName="Zumero.Column">
+  <TypeSignature Language="C#" Value="public class Column : Xamarin.Forms.BindableObject" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Column extends Xamarin.Forms.BindableObject" />
+  <AssemblyInfo>
+    <AssemblyName>Zumero.DataGrid</AssemblyName>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Xamarin.Forms.BindableObject</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>A description of a column within a DataGrid</summary>
+    <remarks>
+      <para>
+          The two most important properties of the DataGrid are 
+          <see cref="T:Zumero.DataGrid.Columns"/>
+          and <see cref="T:Zumero.DataGrid.Rows"/>.  
+
+            <list type="bullet">
+                <item><term>The Rows are the data.</term></item>
+                <item><term>The Columns describe how to display the data.</term></item>
+            </list>
+      </para>
+
+      <para>The most important property of the Column is <see cref="T:Zumero.Column.Template"/>, which
+          is a <c>Xamarin.Forms.DataTemplate</c> object that specifies how the cell View objects for
+          that column will be created as needed.</para>
+
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Column ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>Initializes a new instance of the Column class.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HeaderView">
+      <MemberSignature Language="C#" Value="public Xamarin.Forms.View HeaderView { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Xamarin.Forms.View HeaderView" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.View</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>A View to be placed in the frozen row at the top for this column.</summary>
+        <value>
+        </value>
+        <remarks>
+          <para>
+                The views in the Header are typically Labels, but
+                any kind of View is acceptable as long you don't mind it being forced to the
+                size of the header cell.  
+                </para>
+                <para>
+                    The height of all the header views is controlled by the HeaderHeight property
+                    of the DataGrid.  If you are trying to set headers for your columns and
+                    they are not showing up, verify that the HeaderHeight of the DataGrid
+                    is set appropriately.
+                </para>
+                <para>
+                    The width of each header view is controlled by the width of its column.
+                </para>
+                <para>
+                There is no requirement for all header views to be the same type.  
+                </para>
+                <para>
+                DataGrid does no binding on header views.  It does
+                nothing with them except size them, place them, and scroll them.
+            </para>
+          <para>
+                If you provide a HeaderView for the frozen column, and if you have a
+                Header as well, then FrozenColumn.HeaderView will be 
+                displayed in that awkward, otherwise-wasted space in the upper left corner.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="HeaderViewProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty HeaderViewProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty HeaderViewProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the HeaderView property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Template">
+      <MemberSignature Language="C#" Value="public Xamarin.Forms.DataTemplate Template { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Xamarin.Forms.DataTemplate Template" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.DataTemplate</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>A DataTemplate for generating View objects for the cells in this column.</summary>
+        <value>
+            The DataTemplate object must be configured such that its <c>CreateContent()</c> 
+            method returns a <c>Xamarin.Forms.View</c>.
+        </value>
+        <remarks>
+          <para>
+                The Template for each Column is a critical piece of the story of how DataGrid
+                displays data.
+            </para>
+          <para>
+                Your DataTemplate should return a View which is configured however you want
+                the cells in that column to look.
+            </para>
+          <para>
+                Just as importantly, your DataTemplate should setup the bindings for the
+                View to get the information you want from the row object.
+            </para>
+          <example>
+            <para>
+                In the example below, each cell in the column will be shown as
+                a Label, 100 units wide, with black text centered on a white background.
+                </para>
+            <para>
+                But what text will be shown?  This comes from the binding.  In this case, the
+                text shown in the label will be whatever is contained in the property
+                named English from the row object.
+                </para>
+            <code lang="C#">
+new Column {
+    Width = 100,
+    Template = new DataTemplate (() =&gt; {
+        var v = new Label {
+            BackgroundColor = Color.White,
+            TextColor = Color.Black,
+            XAlign = TextAlignment.Center,
+            YAlign = TextAlignment.Center,
+        };
+        v.SetBinding(Label.TextProperty, "English");
+        return v;
+    }),
+},
+</code>
+          </example>
+          <para>
+                DataGrid will ask your provided Template to generate only enough Views to
+                handle the number of visible rows.  For example, if your screen size and RowHeight
+                are configured such that only 10 rows can be visible at any one time, DataGrid will
+                call <c>Template.CreateContent()</c> 10 times for that column.  When the grid is scrolled,
+                Views that become invisible are reused for things that become visible.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TemplateProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty TemplateProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty TemplateProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the Template property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Width">
+      <MemberSignature Language="C#" Value="public double Width { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float64 Width" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Double</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Width of this column.</summary>
+        <value>Negative values not allowed.</value>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WidthProperty">
+      <MemberSignature Language="C#" Value="public static readonly Xamarin.Forms.BindableProperty WidthProperty;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly class Xamarin.Forms.BindableProperty WidthProperty" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Xamarin.Forms.BindableProperty</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Identifies the Width property.</summary>
+        <remarks>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

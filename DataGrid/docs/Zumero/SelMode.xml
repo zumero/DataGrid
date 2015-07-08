@@ -1,0 +1,42 @@
+<Type Name="SelMode" FullName="Zumero.SelMode">
+  <TypeSignature Language="C#" Value="public enum SelMode" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed SelMode extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Zumero.DataGrid</AssemblyName>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="None">
+      <MemberSignature Language="C#" Value="None" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Zumero.SelMode None = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Zumero.SelMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Row">
+      <MemberSignature Language="C#" Value="Row" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Zumero.SelMode Row = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Zumero.SelMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

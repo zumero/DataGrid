@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Automatically generated-->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>ZumeroDataGrid</id>
+    <version>1.1.2</version>
+    <title>Zumero DataGrid for Xamarin.Forms</title>
+    <description>
+	## Features:
+
+	 - Support for cell contents to be any Xamarin.Forms.View
+	 - Scrolling, both horizontal and vertical
+	 - Optional top frozen header row
+	 - Optional left frozen column
+	 - Separate View template for each column
+	 - View recycling (If you have 1000 rows but only 10 can be visible, DataGrid creates 10 Views and reuses them.)
+	 - Data row objects (provided to the DataGrid as an IList&lt;object&gt;)
+	 - Strong integration with the Xamarin.Forms binding mechanism
+	 - Automatic updates if an ObservableCollection is used for rows and columns
+	 - Configurable row height (for all rows in the grid)
+	 - Configurable column widths (can be different for each column)
+	 - Configurable spacing between rows and columns
+	 - Row selections
+	 - Works with C#, F#, and XAML
+	 - Support for iOS, Android, and Windows Phone
+	 - Full API documentation in MonoDoc
+	 - Technical support service from support@zumero.com
+
+    </description>
+    <authors>Zumero</authors>
+    <owners>Eric Sink</owners>
+    <copyright>Copyright 2014-2015 Zumero, LLC</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes></releaseNotes>
+    <summary>A Xamarin.Forms control for displaying data in rows and columns.</summary>
+    <tags>pcl monotouch ios monodroid android wp8 Xamarin.iOS</tags>
+    <dependencies>
+	    <dependency id="Xamarin.Forms" version="1.4.0"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\portable-net45+netcore45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\" />
+
+    <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\MonoTouch10\" />
+    <file src="..\DataGrid.iOS\bin\Release\Zumero.DataGrid.iOS.dll" target="lib\MonoTouch10\" />
+
+    <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\MonoAndroid10\" />
+    <file src="..\DataGrid.Android\bin\Release\Zumero.DataGrid.Android.dll" target="lib\MonoAndroid10\" />
+
+    <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\WP80\" />
+    <file src="..\DataGrid.WinPhone\bin\Release\Zumero.DataGrid.WinPhone.dll" target="lib\WP80\" />
+
+    <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\Xamarin.iOS10\" />
+    <file src="..\DataGrid.Unified\bin\Release\Zumero.DataGrid.Unified.dll" target="lib\Xamarin.iOS10\" />
+
+  </files>
+</package>
+

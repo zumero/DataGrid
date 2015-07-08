@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+  xmlns:d="clr-namespace:Zumero;assembly=Zumero.DataGrid"
+  xmlns:c="clr-namespace:samples;assembly=samples"
+	x:Class="samples.PresidentsXaml">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <c:ImageSourceConverter x:Key="getImageSourceForPresident"/>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  
+	<ContentPage.Content>
+    
+    <d:DataGrid x:Name="datagrid" Rows="{Binding DataRows}" BackgroundColor="Black" RowHeight="100">
+      <d:DataGrid.FrozenColumn>
+        <d:Column Width="150">
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding full_name}" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+      </d:DataGrid.FrozenColumn>
+
+      <d:DataGrid.Columns>
+
+        <d:Column Width="200">
+          <d:Column.HeaderView>
+            <Label Text="portrait" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Image Source="{Binding ., Converter={StaticResource getImageSourceForPresident} }">
+              </Image>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+      
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="inauguration date" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding inauguration_date, StringFormat='{0:d}'}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+          
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="left office" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding left_office, StringFormat='{0:d}'}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="50">
+          <d:Column.HeaderView>
+            <Label Text="years in office" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding years_in_office}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+        
+        <d:Column Width="50">
+          <d:Column.HeaderView>
+            <Label Text="age" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding age_at_inauguration}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+        
+        <d:Column Width="140">
+          <d:Column.HeaderView>
+            <Label Text="state" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding state_elected_from}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+        
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="occupation" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding Occupation}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="political party" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding political_party}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+        <d:Column Width="100">
+          <d:Column.HeaderView>
+            <Label Text="college" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding College}" BackgroundColor="White" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+        
+      </d:DataGrid.Columns>
+    </d:DataGrid>
+	</ContentPage.Content>
+</ContentPage>

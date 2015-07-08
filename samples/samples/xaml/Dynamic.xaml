@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+  xmlns:d="clr-namespace:Zumero;assembly=Zumero.DataGrid"
+  xmlns:c="clr-namespace:samples;assembly=samples"
+	x:Class="samples.DynamicXaml">
+  <ContentPage.Content>
+    
+    <d:DataGrid x:Name="datagrid" Rows="{Binding DataRows}" BackgroundColor="Black" RowHeight="40" SelectionMode="Row" SelectedBackgroundColor="Aqua" UnselectedBackgroundColor="White">
+      <d:DataGrid.Columns>
+
+        <d:Column Width="120">
+          <d:Column.HeaderView>
+            <Label Text="X" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding X}" BackgroundColor="White" TextColor="Black" XAlign="End" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+      
+        <d:Column Width="120">
+          <d:Column.HeaderView>
+            <Label Text="Sqrt(X)" BackgroundColor="Gray" TextColor="Black" XAlign="Center" YAlign="Center"></Label>
+          </d:Column.HeaderView>
+          <d:Column.Template>
+            <DataTemplate>
+              <Label Text="{Binding Sqrt}" BackgroundColor="White" TextColor="Black" XAlign="End" YAlign="Center"></Label>
+            </DataTemplate>
+          </d:Column.Template>
+        </d:Column>
+
+      </d:DataGrid.Columns>
+    </d:DataGrid>
+	</ContentPage.Content>
+</ContentPage>
+	
