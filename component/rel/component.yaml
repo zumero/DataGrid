@@ -1,0 +1,45 @@
+%YAML 1.2
+---
+name: DataGrid for Xamarin.Forms
+id: ZumeroDataGrid
+publisher: Zumero
+license: ../License.md
+icons: 
+  - ../icons/ZumeroDataGrid_128x128.png
+  - ../icons/ZumeroDataGrid_512x512.png
+publisher-url: http://zumero.com
+monodocs: ../../DataGrid/docs
+packages:
+  pcl: Xamarin.Forms, Version=1.4.0.6341
+  ios: Xamarin.Forms, Version=1.4.0.6341
+  ios-unified: Xamarin.Forms, Version=1.4.0.6341
+  android: Xamarin.Forms, Version=1.4.0.6341
+  wp8: Xamarin.Forms, Version=1.4.0.6341
+libraries: 
+  pcl: ../../DataGrid/bin/Release/Zumero.DataGrid.dll
+  ios: 
+    - ../../DataGrid/bin/Release/Zumero.DataGrid.dll
+    - ../../DataGrid.iOS/bin/Release/Zumero.DataGrid.iOS.dll
+  ios-unified: 
+    - ../../DataGrid/bin/Release/Zumero.DataGrid.dll
+    - ../../DataGrid.Unified/bin/Release/Zumero.DataGrid.Unified.dll
+  android: 
+    - ../../DataGrid/bin/Release/Zumero.DataGrid.dll
+    - ../../DataGrid.Android/bin/Release/Zumero.DataGrid.Android.dll
+  wp8: 
+    - ../../DataGrid/bin/Release/Zumero.DataGrid.dll
+    - ../../DataGrid.WinPhone/bin/Release/Zumero.DataGrid.WinPhone.dll
+summary: A Xamarin.Forms control for displaying data in rows and columns
+details: ../Details.md
+screenshots: 
+  - ../screenshots/android.png
+  - ../screenshots/iOS.png
+  - ../screenshots/winphone.png
+  - ../screenshots/presidents_iPadAir.png
+getting-started: ../GettingStarted.md
+version: 1.1.2
+samples: 
+  - name: "DataGrid Samples"
+    path: ../../samples/samples.sln
+    nobuild: true
+
