@@ -25,6 +25,8 @@ using Xamarin.Forms;
 [assembly:System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.Unified")]
 [assembly:System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.Android")]
 [assembly:System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.WinPhone")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.Windows")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Zumero.DataGrid.WinPhone81")]
 
 namespace Zumero
 {
@@ -92,16 +94,23 @@ namespace Zumero
 			mainPanel = new myLayout(mainGetBox);
 			frozenRowPanel = new myLayout(this.frozenRowGetBox);
 			frozenColumnPanel = new myLayout(this.frozenColumnGetBox);
-
 			cellInventoryByColumn = new Dictionary<int, List<View>> ();
 			coordsToBoundView = new Dictionary<int, Dictionary<int, View>> ();
 			boundViewToCoords = new Dictionary<View, CoordPair> ();
 
 			container = new AbsoluteLayout ();
-
-			frozenRowPanel.IsClippedToBounds = true;
-			frozenColumnPanel.IsClippedToBounds = true;
-			mainPanel.IsClippedToBounds = true;
+            if (Device.OS != TargetPlatform.Windows &&
+                Device.OS != TargetPlatform.WinPhone)
+            {
+                //Setting these flags was causing problems 
+                frozenRowPanel.IsClippedToBounds = true;
+                frozenColumnPanel.IsClippedToBounds = true;
+                mainPanel.IsClippedToBounds = true;
+            }
+            else
+            {
+                frozenRowPanel.CallOnChildMeasureInvalidated = true;
+            }
 
             // note that the ordering of the following statements is
             // significant, but only because IsClippedToBounds doesn't
@@ -568,9 +577,11 @@ namespace Zumero
 				return false;
 			}
 
+            public bool CallOnChildMeasureInvalidated = false;
 			protected override void OnChildMeasureInvalidated ()
 			{
-				// do nothing
+                if (CallOnChildMeasureInvalidated)
+                    base.OnChildMeasureInvalidated();
 			}
 
 			protected override void LayoutChildren (double x, double y, double width, double height)
@@ -791,9 +802,13 @@ namespace Zumero
 				}
 			}
 		}
-
+        bool bAlreadyUpdatingVisibility = false;
 		private void updateVisibility()
 		{
+            if (bAlreadyUpdatingVisibility == true)
+                return;
+
+            bAlreadyUpdatingVisibility = true;
 			int col_first;
 			int col_last;
 			int row_first;
@@ -863,6 +878,7 @@ namespace Zumero
 			if (getColumnWidthPlusSpacing(-1) > 0) {
 				bindVisibleCellsInColumn (-1, row_first, row_last);
 			}
+            bAlreadyUpdatingVisibility = false;
 		}
 
 		internal void GetContentOffset(out double x, out double y)
@@ -1421,4 +1437,5 @@ namespace Zumero
 		}
 	}
 }
+
 
