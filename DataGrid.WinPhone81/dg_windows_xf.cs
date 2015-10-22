@@ -22,7 +22,7 @@ namespace Zumero
 
     public class DataGridRenderer : ViewRenderer<Zumero.DataGrid, Windows.UI.Xaml.Controls.Canvas>
     {
-        public DataGridRenderer()
+        public DataGridRenderer() : base()
         {
             this.ManipulationMode = ManipulationModes.All;
             this.ManipulationStarted += TabularRenderer_ManipulationStarted;
@@ -57,7 +57,6 @@ namespace Zumero
 
         private double _began_x;
         private double _began_y;
-        private bool bFirstTime;
 
 
         void TabularRenderer_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)

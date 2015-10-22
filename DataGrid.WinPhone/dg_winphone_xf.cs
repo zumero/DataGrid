@@ -36,7 +36,7 @@ namespace Zumero
 
     public class DataGridRenderer : ViewRenderer
 	{
-        public DataGridRenderer()
+        public DataGridRenderer() : base()
         {
             this.ManipulationStarted += TabularRenderer_ManipulationStarted;
             this.ManipulationDelta += TabularRenderer_ManipulationDelta;

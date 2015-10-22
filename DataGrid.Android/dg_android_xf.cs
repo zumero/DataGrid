@@ -39,7 +39,7 @@ namespace Zumero
 
     public class DataGridRenderer : VisualElementRenderer<Zumero.DataGrid>
     {
-        public DataGridRenderer()
+        public DataGridRenderer() : base()
         {
             ViewConfiguration configuration = ViewConfiguration.Get(this.Context);
             mTouchSlop = configuration.ScaledTouchSlop;

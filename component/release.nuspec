@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata minClientVersion="2.5">
     <id>ZumeroDataGrid</id>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <title>Zumero DataGrid for Xamarin.Forms</title>
     <description>
 	## Features:
@@ -22,7 +22,7 @@
 	 - Configurable spacing between rows and columns
 	 - Row selections
 	 - Works with C#, F#, and XAML
-	 - Support for iOS, Android, and Windows Phone
+	 - Support for iOS, Android, Windows Phone, Windows and Windows Phone 8.1
 	 - Full API documentation in MonoDoc
 
     </description>
@@ -32,13 +32,13 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes></releaseNotes>
     <summary>A Xamarin.Forms control for displaying data in rows and columns.</summary>
-    <tags>pcl monotouch ios monodroid android wp8 Xamarin.iOS</tags>
+    <tags>pcl monotouch ios monodroid android wp8 wpa81 win Xamarin.iOS</tags>
     <dependencies>
-	    <dependency id="Xamarin.Forms" version="1.4.0"/>
+	    <dependency id="Xamarin.Forms" version="1.5.1"/>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\portable-net45+netcore45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\" />
+    <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\portable-net45+netcore45+wpa81+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\" />
 
     <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\MonoTouch10\" />
     <file src="..\DataGrid.iOS\bin\Release\Zumero.DataGrid.iOS.dll" target="lib\MonoTouch10\" />
@@ -51,6 +51,12 @@
 
     <file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\Xamarin.iOS10\" />
     <file src="..\DataGrid.Unified\bin\Release\Zumero.DataGrid.Unified.dll" target="lib\Xamarin.iOS10\" />
+	
+	<file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\win\" />
+    <file src="..\DataGrid.Windows\bin\Release\Zumero.DataGrid.Windows.dll" target="lib\win\" />
+	
+	<file src="..\DataGrid\bin\Release\Zumero.DataGrid.dll" target="lib\wpa81\" />
+    <file src="..\DataGrid.WinPhone81\bin\Release\Zumero.DataGrid.WinPhone81.dll" target="lib\wpa81\" />
 
   </files>
 </package>

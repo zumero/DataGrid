@@ -22,7 +22,7 @@ namespace Zumero
 
     public class DataGridRenderer : ViewRenderer<Zumero.DataGrid, Windows.UI.Xaml.Controls.Canvas>
 	{
-        public DataGridRenderer()
+        public DataGridRenderer() : base()
         {
             this.ManipulationMode = ManipulationModes.All;
             this.ManipulationStarted += TabularRenderer_ManipulationStarted;
@@ -40,9 +40,16 @@ namespace Zumero
             r.Rect = rect;
             this.Clip = r;
         }
+        public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint)
+        {
+            return base.GetDesiredSize(widthConstraint, heightConstraint);
+        }
 
         void Control_PointerWheelChanged(object sender, PointerRoutedEventArgs e)
         {
+            if (e.KeyModifiers.HasFlag(Windows.System.VirtualKeyModifiers.Control))
+                return;
+
             tab.GetContentOffset(out _began_x, out _began_y);
             tab.SetContentOffset(_began_x, _began_y - e.GetCurrentPoint(this.Control).Properties.MouseWheelDelta);
         }
@@ -57,7 +64,6 @@ namespace Zumero
 
         private double _began_x;
         private double _began_y;
-        private bool bFirstTime;
 
         
         void TabularRenderer_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)

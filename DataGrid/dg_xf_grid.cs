@@ -706,6 +706,8 @@ namespace Zumero
 
 		protected override void OnSizeAllocated (double width, double height)
 		{
+            if (width < 0 || height < 0)
+                return;
             base.OnSizeAllocated(width, height);
 
 			layoutPanels ();

@@ -10,11 +10,11 @@ icons:
 publisher-url: http://zumero.com
 monodocs: ../../DataGrid/docs
 packages:
-  pcl: Xamarin.Forms, Version=1.4.0.6341
-  ios: Xamarin.Forms, Version=1.4.0.6341
-  ios-unified: Xamarin.Forms, Version=1.4.0.6341
-  android: Xamarin.Forms, Version=1.4.0.6341
-  wp8: Xamarin.Forms, Version=1.4.0.6341
+  pcl: Xamarin.Forms, Version=1.5.1.6468
+  ios: Xamarin.Forms, Version=1.5.1.6468
+  ios-unified: Xamarin.Forms, Version=1.5.1.6468
+  android: Xamarin.Forms, Version=1.5.1.6468
+  wp8: Xamarin.Forms, Version=1.5.1.6468
 libraries: 
   pcl: ../../DataGrid/bin/Release/Zumero.DataGrid.dll
   ios: 
@@ -37,7 +37,7 @@ screenshots:
   - ../screenshots/winphone.png
   - ../screenshots/presidents_iPadAir.png
 getting-started: ../GettingStarted.md
-version: 1.1.2
+version: 1.1.3
 samples: 
   - name: "DataGrid Samples"
     path: ../../samples/samples.sln
