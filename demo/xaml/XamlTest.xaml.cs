@@ -25,7 +25,7 @@ using Zumero;
 
 namespace demo.xaml
 {
-    public partial class XamlTest
+    public partial class XamlTest : ContentPage
     {
         public XamlTest()
         {
